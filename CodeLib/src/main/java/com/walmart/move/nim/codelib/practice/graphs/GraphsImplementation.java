@@ -1,4 +1,4 @@
-package com.walmart.move.nim.codelib.graphs;
+package com.walmart.move.nim.codelib.practice.graphs;
 
 import java.util.HashMap;
 import java.util.HashSet;

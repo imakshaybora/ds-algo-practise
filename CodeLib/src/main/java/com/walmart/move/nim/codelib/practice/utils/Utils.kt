@@ -1,6 +1,6 @@
-package com.walmart.move.nim.codelib.utils
+package com.walmart.move.nim.codelib.practice.utils
 
-import com.walmart.move.nim.codelib.linkedlist.model.LinkedListNode
+import com.walmart.move.nim.codelib.practice.linkedlist.model.LinkedListNode
 
 object Utils {
     fun getLinkedList(): LinkedListNode {

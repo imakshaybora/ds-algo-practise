@@ -1,7 +1,7 @@
-package com.walmart.move.nim.codelib.linkedlist;
+package com.walmart.move.nim.codelib.practice.linkedlist;
 
 
-import com.walmart.move.nim.codelib.linkedlist.model.LinkedListNode;
+import com.walmart.move.nim.codelib.practice.linkedlist.model.LinkedListNode;
 
 public class LoopInLinkedList {
 

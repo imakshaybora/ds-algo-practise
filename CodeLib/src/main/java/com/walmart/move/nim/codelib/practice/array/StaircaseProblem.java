@@ -1,4 +1,4 @@
-package com.walmart.move.nim.codelib.array;
+package com.walmart.move.nim.codelib.practice.array;
 
 public class StaircaseProblem {
     public static void main(String[] args) {

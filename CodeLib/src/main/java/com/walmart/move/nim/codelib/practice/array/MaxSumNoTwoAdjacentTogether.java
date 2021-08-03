@@ -1,4 +1,4 @@
-package com.walmart.move.nim.codelib.array;
+package com.walmart.move.nim.codelib.practice.array;
 
 public class MaxSumNoTwoAdjacentTogether {
     public static int maxSumNoTwoAdjacent(int n, int[] arr) {

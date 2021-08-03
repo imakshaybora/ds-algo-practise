@@ -1,4 +1,4 @@
-package com.walmart.move.nim.codelib.linkedlist.model;
+package com.walmart.move.nim.codelib.practice.linkedlist.model;
 
 public class LinkedListNode {
     public int data;
