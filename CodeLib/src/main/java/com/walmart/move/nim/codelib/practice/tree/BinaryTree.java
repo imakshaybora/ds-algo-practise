@@ -5,33 +5,29 @@ package com.walmart.move.nim.codelib.practice.tree;
 
 /* Class containing left and right child of current
  node and key value*/
-class Node
-{
+class Node {
     int data;
     Node left, right;
 
-    public Node(int item)
-    {
+    public Node(int item) {
         data = item;
         left = right = null;
     }
 }
 
-public class BinaryTree
-{
+public class BinaryTree {
     //Root of the Binary Tree
     Node root;
+    static int maxLevel = -1;
 
-    Node findLCA(int n1, int n2)
-    {
+    Node findLCA(int n1, int n2) {
         return findLCA(root, n1, n2);
     }
 
     // This function returns pointer to LCA of two given
     // values n1 and n2. This function assumes that n1 and
     // n2 are present in Binary Tree
-    Node findLCA(Node node, int n1, int n2)
-    {
+    Node findLCA(Node node, int n1, int n2) {
         // Base case
         if (node == null)
             return null;
@@ -49,16 +45,50 @@ public class BinaryTree
         // If both of the above calls return Non-NULL, then one key
         // is present in once subtree and other is present in other,
         // So this node is the LCA
-        if (left_lca!=null && right_lca!=null)
+        if (left_lca != null && right_lca != null)
             return node;
 
         // Otherwise check if left subtree or right subtree is LCA
         return (left_lca != null) ? left_lca : right_lca;
     }
 
+    static void leftViewBinaryTree(Node node) {
+
+        // Starts with 0 level as that is start level of node
+        leftViewBinaryTreeRecur(node, 0);
+    }
+
+    private static void leftViewBinaryTreeRecur(Node node, int level) {
+        if (node == null) {
+            return;
+        }
+        if (maxLevel < level) {
+            System.out.println(node.data);
+            maxLevel = level;
+        }
+
+        leftViewBinaryTreeRecur(node.left, level + 1);
+        leftViewBinaryTreeRecur(node.right, level + 1);
+    }
+
+    static void rightViewBinaryTree(Node node) {
+        rightViewBinaryTreeRecur(node, 0);
+    }
+
+    private static void rightViewBinaryTreeRecur(Node node, int level) {
+        if (node == null) {
+            return;
+        }
+        if (maxLevel < level) {
+            System.out.println(node.data);
+            maxLevel = level;
+        }
+        rightViewBinaryTreeRecur(node.right, level + 1);
+        rightViewBinaryTreeRecur(node.left, level + 1);
+    }
+
     /* Driver program to test above functions */
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         BinaryTree tree = new BinaryTree();
         tree.root = new Node(1);
         tree.root.left = new Node(2);

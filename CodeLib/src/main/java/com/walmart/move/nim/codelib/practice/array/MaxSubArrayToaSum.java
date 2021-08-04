@@ -3,7 +3,6 @@ package com.walmart.move.nim.codelib.practice.array;
 public class MaxSubArrayToaSum {
     // input nums = [2,3,4,5,0,0,7,7,9], sum = 14 result = [0,5]
     public static int[] getLongestSubArray(int[] nums, int s) {
-        char abc ='a';
         int left = 0;
         int right = 0;
         int[] result = new int[]{-1};
