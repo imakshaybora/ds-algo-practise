@@ -4,6 +4,8 @@ package com.akshay.ds.practise.codelib.practice.tree;
 // n1 and n2 using one traversal of binary tree
 
 
+import com.akshay.ds.practise.codelib.practice.tree.model.Node;
+
 import java.util.Map;
 import java.util.TreeMap;
 

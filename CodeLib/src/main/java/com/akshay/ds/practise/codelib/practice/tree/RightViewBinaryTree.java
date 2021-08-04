@@ -1,5 +1,7 @@
 package com.akshay.ds.practise.codelib.practice.tree;
 
+import com.akshay.ds.practise.codelib.practice.tree.model.Node;
+
 public class RightViewBinaryTree {
     public static void main(String[] args) {
         Node root = new Node(1);
