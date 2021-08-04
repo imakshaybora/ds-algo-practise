@@ -3,17 +3,11 @@ package com.walmart.move.nim.codelib.practice.tree;
 //Java implementation to find lowest common ancestor of
 // n1 and n2 using one traversal of binary tree
 
-/* Class containing left and right child of current
- node and key value*/
-class Node {
-    int data;
-    Node left, right;
 
-    public Node(int item) {
-        data = item;
-        left = right = null;
-    }
-}
+import java.util.Map;
+import java.util.TreeMap;
+
+import kotlin.Pair;
 
 public class BinaryTree {
     //Root of the Binary Tree
@@ -85,6 +79,50 @@ public class BinaryTree {
         }
         rightViewBinaryTreeRecur(node.right, level + 1);
         rightViewBinaryTreeRecur(node.left, level + 1);
+    }
+
+    static void topViewBinaryTree(Node node) {
+        TreeMap<Integer, Pair<Node, Integer>> map = new TreeMap<Integer, Pair<Node, Integer>>();
+        topViewBinaryTreeRecur(node, map, 0, 0);
+
+        for (Map.Entry<Integer, Pair<Node, Integer>> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ":" + entry.getValue().getFirst().data);
+        }
+    }
+
+    private static void topViewBinaryTreeRecur(Node node, Map<Integer, Pair<Node, Integer>> distLevelMap, int dist, int level) {
+        if (node == null) {
+            return;
+        }
+        Pair<Node, Integer> pair = distLevelMap.get(dist);
+        if (pair == null || pair.getSecond() > level) {
+            distLevelMap.put(dist, new Pair<>(node, level));
+        }
+
+        topViewBinaryTreeRecur(node.left, distLevelMap, dist - 1, level + 1);
+        topViewBinaryTreeRecur(node.right, distLevelMap, dist + 1, level + 1);
+    }
+
+    static void bottomViewBinaryTree(Node node) {
+        TreeMap<Integer, Pair<Node, Integer>> map = new TreeMap<Integer, Pair<Node, Integer>>();
+        bottomViewBinaryTreeRecur(node, map, 0, 0);
+
+        for (Map.Entry<Integer, Pair<Node, Integer>> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ":" + entry.getValue().getFirst().data);
+        }
+    }
+
+    private static void bottomViewBinaryTreeRecur(Node node, Map<Integer, Pair<Node, Integer>> distLevelMap, int dist, int level) {
+        if (node == null) {
+            return;
+        }
+        Pair<Node, Integer> pair = distLevelMap.get(dist);
+        if (pair == null || pair.getSecond() < level) {
+            distLevelMap.put(dist, new Pair<>(node, level));
+        }
+
+        bottomViewBinaryTreeRecur(node.left, distLevelMap, dist - 1, level + 1);
+        bottomViewBinaryTreeRecur(node.right, distLevelMap, dist + 1, level + 1);
     }
 
     /* Driver program to test above functions */
